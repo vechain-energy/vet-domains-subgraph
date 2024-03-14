@@ -1,0 +1,29 @@
+{
+  "name": "vet-domains-subgraph",
+  "version": "1.0.2",
+  "repository": "https://github.com/vechain-energy/vet-domains-subgraph",
+  "license": "MIT",
+  "scripts": {
+    "codegen": "graph codegen --output-dir src/types/",
+    "test": "graph test",
+    "setup": "yarn codegen && yarn create-local && yarn deploy-local",
+    "create-local": "graph create vns --node http://127.0.0.1:8020",
+    "deploy-local": "graph deploy vns --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020/ --version-label 0.0.1",
+    "remove-local": "graph remove vns --node http://127.0.0.1:8020",
+    "docker:setup": "yarn codegen && yarn docker:create-local && yarn docker:deploy-local",
+    "docker:create-local": "graph create vns --node http://ens-app_graph-node_1:8020",
+    "docker:deploy-local": "graph deploy vns --ipfs http://ens-app_ipfs_1:5001 --node http://ens-app_graph-node_1:8020/ --version-label 0.0.1",
+    "docker:remove-local": "graph remove vns --node http://ens-app_graph-node_1:8020",
+    "build": "graph build",
+    "deploy": "graph deploy --network vechain_mainnet --product hosted-service vns",
+    "watch-local": "graph deploy vns --watch --debug --node http://127.0.0.1:8020/ --ipfs http://localhost:5001"
+  },
+  "devDependencies": {
+    "@ensdomains/content-hash": "^2.5.3",
+    "@graphprotocol/graph-cli": "^0.67.2",
+    "@graphprotocol/graph-ts": "^0.31.0",
+    "assemblyscript": "^0.19.0",
+    "matchstick-as": "^0.5.2",
+    "typescript": "^4.9.4"
+  }
+}
