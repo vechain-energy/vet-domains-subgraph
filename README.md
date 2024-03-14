@@ -4,6 +4,8 @@ This Subgraph sources events from the vet.domains contracts. This includes the r
 
 The original repository has been forked from: https://github.com/ensdomains/ens-subgraph
 
+A deployment is available on: https://graph.vet/subgraphs/name/vns
+
 # Example Queries
 
 Here we have example queries, so that you don't have to type them in yourself eachtime in the graphiql playground:
