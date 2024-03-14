@@ -16,7 +16,9 @@ jobs:
           cache: 'yarn'
 
       - name: Install Dependencies
-        run: yarn install
+        run: |
+          corepack enable
+          yarn install
 
       - name: Run Tests
         run: yarn codegen && yarn test
