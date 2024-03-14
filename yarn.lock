@@ -41,15 +41,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ensdomains/content-hash@npm:^2.5.3":
-  version: 2.5.7
-  resolution: "@ensdomains/content-hash@npm:2.5.7"
+"@ensdomains/content-hash@npm:2.5.3":
+  version: 2.5.3
+  resolution: "@ensdomains/content-hash@npm:2.5.3"
   dependencies:
-    cids: ^1.1.5
-    js-base64: ^3.6.0
-    multicodec: ^3.2.0
+    cids: ^0.8.3
+    multicodec: ^1.0.4
     multihashes: ^2.0.0
-  checksum: bbd8b884f9fa5ef10afacd4954d3d7bc5218b1a9d4fadf817f2d8323d99a17559812ee0f53b7dd7c2d8ca7252bebf880cd8c6da05c445bcbee07c6ccd2488396
+  checksum: 617d734ab2466decc3c669589b7eda3c136c58923c59fd82c597f887b86d27fb4874720d67e71e87553b763b5fef95921cefe0970ff8edcdc52d88660fb6ec24
   languageName: node
   linkType: hard
 
@@ -280,7 +279,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphprotocol/graph-cli@npm:^0.67.2":
+"@graphprotocol/graph-cli@npm:0.67.2":
   version: 0.67.2
   resolution: "@graphprotocol/graph-cli@npm:0.67.2"
   dependencies:
@@ -317,7 +316,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphprotocol/graph-ts@npm:^0.31.0":
+"@graphprotocol/graph-ts@npm:0.31.0":
   version: 0.31.0
   resolution: "@graphprotocol/graph-ts@npm:0.31.0"
   dependencies:
@@ -390,13 +389,6 @@ __metadata:
     "@jridgewell/resolve-uri": ^3.0.3
     "@jridgewell/sourcemap-codec": ^1.4.10
   checksum: d89597752fd88d3f3480845691a05a44bd21faac18e2185b6f436c3b0fd0c5a859fbbd9aaa92050c4052caf325ad3e10e2e1d1b64327517471b7d51babc0ddef
-  languageName: node
-  linkType: hard
-
-"@multiformats/base-x@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "@multiformats/base-x@npm:4.0.1"
-  checksum: ecbf84bdd7613fd795e4a41f20f3e8cc7df8bbee84690b7feed383d45a638ed228a80ff6f5c930373cbf24539f64857b66023ee3c1e914f6bac9995c76414a87
   languageName: node
   linkType: hard
 
@@ -1109,6 +1101,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"assemblyscript@npm:0.19.0":
+  version: 0.19.0
+  resolution: "assemblyscript@npm:0.19.0"
+  dependencies:
+    binaryen: 101.0.0-nightly.20210527
+    long: ^4.0.0
+  bin:
+    asc: bin/asc
+    asinit: bin/asinit
+  checksum: 8e8c1cca6acdefb384fddd5a9bbf81a14160dbedf4c152efea4946ce8ab70526a106092b8429e980db24bde12447c0dc8f5b23579c1cab1a4267c57e2ceb09a6
+  languageName: node
+  linkType: hard
+
 "assemblyscript@npm:0.19.10":
   version: 0.19.10
   resolution: "assemblyscript@npm:0.19.10"
@@ -1122,7 +1127,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"assemblyscript@npm:0.19.23, assemblyscript@npm:^0.19.0":
+"assemblyscript@npm:0.19.23":
   version: 0.19.23
   resolution: "assemblyscript@npm:0.19.23"
   dependencies:
@@ -1218,6 +1223,15 @@ __metadata:
     rimraf: ^3.0.2
     tar: ^6.1.0
   checksum: f18515976237100459b4e2983832c941421ed8767c7fbc0ca716aa96210ccdd6c8ae9fdb9e0c39099248ebd8a3f4653560cb0b655192bb3b4efa1f7be204343a
+  languageName: node
+  linkType: hard
+
+"binaryen@npm:101.0.0-nightly.20210527":
+  version: 101.0.0-nightly.20210527
+  resolution: "binaryen@npm:101.0.0-nightly.20210527"
+  bin:
+    wasm-opt: bin/wasm-opt
+  checksum: 7bac6a6d62c62aeee90ee56e6e1f566f81a1bb7ffe2e81b40bd82fedbc7ea53f31acc7b18a08f7df11d67a3d59b44742b559898704a3020fe3598793c1ca48bc
   languageName: node
   linkType: hard
 
@@ -1558,15 +1572,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cids@npm:^1.1.5":
-  version: 1.1.9
-  resolution: "cids@npm:1.1.9"
+"cids@npm:^0.8.3":
+  version: 0.8.3
+  resolution: "cids@npm:0.8.3"
   dependencies:
-    multibase: ^4.0.1
-    multicodec: ^3.0.1
-    multihashes: ^4.0.1
-    uint8arrays: ^3.0.0
-  checksum: 58ad9411b51c4f2d1568a3542578cf8c05028631ef8d9b0aa46db4ebbc812c4d7159216b310e333a81ff9f1b8e44c1c8ff3debdc0a8e9d83421af7f776677e41
+    buffer: ^5.6.0
+    class-is: ^1.1.0
+    multibase: ^1.0.0
+    multicodec: ^1.0.1
+    multihashes: ^1.0.1
+  checksum: ca4b18e421a6f5e446e63f296ad5c91b55bd4dd4880a78777857b2279460259946691d383928503c4381f0e05f998c7bfab5b6e623acc2d4d237571d99c53d9d
   languageName: node
   linkType: hard
 
@@ -1577,6 +1592,13 @@ __metadata:
     inherits: ^2.0.1
     safe-buffer: ^5.0.1
   checksum: 47d3568dbc17431a339bad1fe7dff83ac0891be8206911ace3d3b818fc695f376df809bea406e759cdea07fff4b454fa25f1013e648851bec790c1d75763032e
+  languageName: node
+  linkType: hard
+
+"class-is@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "class-is@npm:1.1.0"
+  checksum: 49024de3b264fc501a38dd59d8668f1a2b4973fa6fcef6b83d80fe6fe99a2000a8fbea5b50d4607169c65014843c9f6b41a4f8473df806c1b4787b4d47521880
   languageName: node
   linkType: hard
 
@@ -3396,13 +3418,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-base64@npm:^3.6.0":
-  version: 3.7.2
-  resolution: "js-base64@npm:3.7.2"
-  checksum: 573f28e9a27c3df60096d4d3f551bcb4fcb6d49161cf83396e9bad9b76f94736a70bb70b8808fe834dff2a388f76604ba09d6e153bbf181646e407720139fa5b
-  languageName: node
-  linkType: hard
-
 "js-sha3@npm:0.8.0, js-sha3@npm:^0.8.0":
   version: 0.8.0
   resolution: "js-sha3@npm:0.8.0"
@@ -3677,7 +3692,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"matchstick-as@npm:^0.5.2":
+"matchstick-as@npm:0.5.2":
   version: 0.5.2
   resolution: "matchstick-as@npm:0.5.2"
   dependencies:
@@ -3965,6 +3980,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"multibase@npm:^1.0.0, multibase@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "multibase@npm:1.0.1"
+  dependencies:
+    base-x: ^3.0.8
+    buffer: ^5.5.0
+  checksum: 5d34398f81dca137aafe65a171ed5d637cf789bebb4fd33e11c186bfecbe6435a3d4f5c0cf15282607215ccc3a55ff4150a42067e7bc7756a42554e5fbc6d0d5
+  languageName: node
+  linkType: hard
+
 "multibase@npm:^2.0.0":
   version: 2.0.0
   resolution: "multibase@npm:2.0.0"
@@ -3976,22 +4001,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"multibase@npm:^4.0.1":
-  version: 4.0.6
-  resolution: "multibase@npm:4.0.6"
+"multicodec@npm:^1.0.1, multicodec@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "multicodec@npm:1.0.4"
   dependencies:
-    "@multiformats/base-x": ^4.0.1
-  checksum: 891ce47f509c6070d2306e7e00aef3ef41fbb50a848a1e1bec5e75ca63c5032015a436cf09e9e3939b5b2ca81e74804151eb410a388f10e9aabf7a2f5a35d272
-  languageName: node
-  linkType: hard
-
-"multicodec@npm:^3.0.1, multicodec@npm:^3.2.0":
-  version: 3.2.1
-  resolution: "multicodec@npm:3.2.1"
-  dependencies:
-    uint8arrays: ^3.0.0
-    varint: ^6.0.0
-  checksum: 9b6d209c85e12ea3f66cad25671dd92b6be2eff1455669fbbd3c01a26e649c79f94b29f8228c0f9e4fdecb4137b6b6f0f4b0721fd2cb79ec74b1049c29101092
+    buffer: ^5.6.0
+    varint: ^5.0.0
+  checksum: e6a2916fa76c023b1c90b32ae74f8a781cf0727f71660b245a5ed1db46add6f2ce1586bee5713b16caf0a724e81bfe0678d89910c20d3bb5fd9649dacb2be79e
   languageName: node
   linkType: hard
 
@@ -4009,6 +4025,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"multihashes@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "multihashes@npm:1.0.1"
+  dependencies:
+    buffer: ^5.6.0
+    multibase: ^1.0.1
+    varint: ^5.0.0
+  checksum: 21e338dfb23900f7c038ac708fab598b33bc3d8d02f636ff753969c575b934f979dec76936ca142c6fd126a8bd030f7f391a44a3681c92cab28311c8b0b70589
+  languageName: node
+  linkType: hard
+
 "multihashes@npm:^2.0.0":
   version: 2.0.0
   resolution: "multihashes@npm:2.0.0"
@@ -4018,17 +4045,6 @@ __metadata:
     varint: ^5.0.0
     web-encoding: ^1.0.2
   checksum: 7999fc857e1ba1af0f91361d32d59c64f39e3fef396dd1b42265d902aeb2130340e1f0662e3c7280d4f3bfedca3d32c93ae89e13fd834a1a5c5fd49c22d461e0
-  languageName: node
-  linkType: hard
-
-"multihashes@npm:^4.0.1":
-  version: 4.0.3
-  resolution: "multihashes@npm:4.0.3"
-  dependencies:
-    multibase: ^4.0.1
-    uint8arrays: ^3.0.0
-    varint: ^5.0.2
-  checksum: 57c978aa53f7144f8a146a486aa6aea96a73f21058f48ab80a8c5542854197aa63d33aae42b005bed1bbba9f70958b60f3287d90f1a47cf13e8ea7d75d6b8e34
   languageName: node
   linkType: hard
 
@@ -5318,7 +5334,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.9.4":
+"typescript@npm:4.9.4":
   version: 4.9.4
   resolution: "typescript@npm:4.9.4"
   bin:
@@ -5328,7 +5344,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.9.4#~builtin<compat/typescript>":
+"typescript@patch:typescript@4.9.4#~builtin<compat/typescript>":
   version: 4.9.4
   resolution: "typescript@patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=289587"
   bin:
@@ -5435,7 +5451,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"varint@npm:^5.0.0, varint@npm:^5.0.2":
+"varint@npm:^5.0.0":
   version: 5.0.2
   resolution: "varint@npm:5.0.2"
   checksum: e1a66bf9a6cea96d1f13259170d4d41b845833acf3a9df990ea1e760d279bd70d5b1f4c002a50197efd2168a2fd43eb0b808444600fd4d23651e8d42fe90eb05
@@ -5453,12 +5469,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vet-domains-subgraph@workspace:."
   dependencies:
-    "@ensdomains/content-hash": ^2.5.3
-    "@graphprotocol/graph-cli": ^0.67.2
-    "@graphprotocol/graph-ts": ^0.31.0
-    assemblyscript: ^0.19.0
-    matchstick-as: ^0.5.2
-    typescript: ^4.9.4
+    "@ensdomains/content-hash": 2.5.3
+    "@graphprotocol/graph-cli": 0.67.2
+    "@graphprotocol/graph-ts": 0.31.0
+    assemblyscript: 0.19.0
+    matchstick-as: 0.5.2
+    typescript: 4.9.4
   languageName: unknown
   linkType: soft
 
