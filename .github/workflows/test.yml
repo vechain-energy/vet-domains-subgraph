@@ -8,15 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
+      - name: Enable corepack
+        run: corepack enable
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'yarn'
-
+          cache: 'npm'
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
-
+        run: yarn install
       - name: Run Tests
         run: yarn codegen && yarn test
