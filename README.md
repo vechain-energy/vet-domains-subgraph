@@ -11,73 +11,55 @@ A deployment is available on: https://graph.vet/subgraphs/name/vns
 Here we have example queries, so that you don't have to type them in yourself eachtime in the graphiql playground:
 
 ```graphql
-{
-  domains {
-    id
-    labelName
-    labelhash
-    parent {
-      id
-    }
-    subdomains {
-      id
-    }
+query Examples {
+  domains(orderBy: createdAt, orderDirection: desc, first: 5, skip: 0) {
+    name
+    subdomainCount
     owner {
       id
     }
-    resolver {
-      id
-    }
-    ttl
   }
-  resolvers {
+
+  accounts {
     id
-    address
-    domain {
-      id
+    domains(orderBy: createdAt, orderDirection: asc) {
+      name
     }
-    events {
-      id
-      node
-      ... on AddrChanged {
-        a
-      }
-      ... on NameChanged {
+  }
+
+  textChangeds(orderBy: blockNumber, orderDirection: desc) {
+    id
+    key
+    blockNumber
+    value
+    resolver {
+      domain {
         name
       }
-      ... on AbiChanged {
-        contentType
-      }
-      ... on PubkeyChanged {
-        x
-        y
-      }
-      ... on TextChanged {
-        indexedKey
-        key
-      }
-      ... on ContenthashChanged {
-        hash
-      }
-      ... on InterfaceChanged {
-        interfaceID
-        implementer
-      }
-      ... on AuthorisationChanged {
-        owner
-        target
-        isAuthorized
+      addr {
+        id
       }
     }
   }
-  registrations(where: { labelName_not: null }, orderBy: expiryDate, orderDirection: asc, first: 10, skip: 0) {
-    expiryDate
-    labelName
-    domain{
+
+  registrations(orderDirection: desc, orderBy: registrationDate, first: 5) {
+    cost
+    domain {
       name
-      labelName
+    }
+    registrant {
+      id
+    }
+  }
+
+  nameReneweds(first: 5, orderBy: blockNumber, orderDirection: desc) {
+    id
+    registration {
+      domain {
+        name
+      }
+      cost
     }
   }
 }
-
 ```
