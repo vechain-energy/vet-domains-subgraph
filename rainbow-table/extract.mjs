@@ -34,6 +34,10 @@ const queryTemplate = `
     domains(first: 1000, skip: $skip) {
       labelhash
       labelName
+      subdomains(first: 1000, skip: 0) {
+        labelName
+        labelhash
+      }
     }
   }
 `;
@@ -62,8 +66,14 @@ const fetchData = async (skip) => {
 
     data.data.domains.forEach(domain => {
       if (domain.labelhash && domain.labelName) {
-        console.log(`INSERT INTO public.ens_names (hash, name) VALUES ('${domain.labelhash}', '${domain.labelName}');`);
+        console.log(`INSERT INTO ens_names (hash, name) VALUES ('${domain.labelhash}', '${domain.labelName}') ON CONFLICT DO NOTHING;`);
       }
+
+      domain.subdomains.forEach(subdomain => {
+        if (subdomain.labelhash && subdomain.labelName) {
+          console.log(`INSERT INTO ens_names (hash, name) VALUES ('${subdomain.labelhash}', '${subdomain.labelName}') ON CONFLICT DO NOTHING;`);
+        }
+      })
     });
 
     return true; // More data might be available
