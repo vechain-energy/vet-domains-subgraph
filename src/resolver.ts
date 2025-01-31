@@ -1,4 +1,4 @@
-import { Address, Bytes, ethereum } from "@graphprotocol/graph-ts";
+import { Address, Bytes, ByteArray, ethereum, log, crypto } from "@graphprotocol/graph-ts";
 
 import {
   ABIChanged as ABIChangedEvent,
@@ -85,6 +85,36 @@ export function handleNameChanged(event: NameChangedEvent): void {
   if (event.params.name.indexOf("\u0000") != -1) return;
 
   const resolver = getOrCreateResolver(event.params.node, event.address, true);
+
+  // Calculate namehash from the event's name
+  const nameParts = event.params.name.split('.');
+  let namehash = Bytes.fromHexString("0000000000000000000000000000000000000000000000000000000000000000");
+
+  // Calculate namehash from right to left
+  for (let i = nameParts.length - 1; i >= 0; i--) {
+    const labelHash = crypto.keccak256(ByteArray.fromUTF8(nameParts[i]));
+    const combined = new ByteArray(namehash.length + labelHash.length);
+    for (let j = 0; j < namehash.length; j++) {
+      combined[j] = namehash[j];
+    }
+    for (let j = 0; j < labelHash.length; j++) {
+      combined[namehash.length + j] = labelHash[j];
+    }
+    namehash = Bytes.fromByteArray(crypto.keccak256(combined));
+  }
+
+  // Get the domain using the calculated namehash
+  const domain = Domain.load(namehash.toHexString());
+  if (domain && !domain.labelName) {
+    log.info(
+      'Updating domain name: namehash={}, newName={}',
+      [namehash.toHexString(), event.params.name]
+    );
+
+    domain.name = event.params.name;
+    domain.labelName = nameParts[0];  // Set the first part as labelName
+    domain.save();
+  }
 
   let resolverEvent = new NameChanged(createEventID(event));
   resolverEvent.resolver = resolver.id;
