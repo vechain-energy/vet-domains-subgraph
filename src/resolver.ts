@@ -42,9 +42,29 @@ export function handleAddrChanged(event: AddrChangedEvent): void {
   resolver.addr = event.params.a.toHexString();
   resolver.save();
 
-  let domain = Domain.load(event.params.node.toHexString());
-  if (domain && domain.resolver == resolver.id) {
-    domain.resolvedAddress = event.params.a.toHexString();
+  // Calculate namehash for <address>.addr.reverse
+  const addr = event.params.a.toHexString().substring(2).toLowerCase();
+  const nameParts = [addr, "addr", "reverse"];
+  let namehash = Bytes.fromHexString("0000000000000000000000000000000000000000000000000000000000000000");
+  
+  // Calculate namehash from right to left
+  for (let i = nameParts.length - 1; i >= 0; i--) {
+    const labelHash = crypto.keccak256(ByteArray.fromUTF8(nameParts[i]));
+    const combined = new ByteArray(namehash.length + labelHash.length);
+    for (let j = 0; j < namehash.length; j++) {
+      combined[j] = namehash[j];
+    }
+    for (let j = 0; j < labelHash.length; j++) {
+      combined[namehash.length + j] = labelHash[j];
+    }
+    namehash = Bytes.fromByteArray(crypto.keccak256(combined));
+  }
+
+  // Look for a reverse record for this address
+  const domain = Domain.load(namehash.toHexString());
+  if (domain && !domain.labelName) {
+    domain.name = `${addr}.addr.reverse`;
+    domain.labelName = addr;
     domain.save();
   }
 
